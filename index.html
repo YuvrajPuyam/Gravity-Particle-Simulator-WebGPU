@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gravity Particle Simulation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+    <nav class="top-bar">
+        <h1>Gravity Particle Simulation</h1>
+        <div id="fps">--- FPS</div>
+    </nav>
+
+    <div class="controls-container">
+        <div class="control-group">
+            <label for="numbodies">Particle Count</label>
+            <div class="select-wrapper">
+                <select id="numbodies">
+                    <option value="32768">32,768</option>
+                    <option value="16384">16,384</option>
+                    <option value="8192">8,192</option>
+                    <option value="4096">4,096</option>
+                    <option value="2048">2,048</option>
+                    <option value="1024">1,024</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label for="wgsize">Workgroup Size</label>
+            <div class="select-wrapper">
+                <select id="wgsize">
+                    <option value="256">256</option>
+                    <option value="128">128</option>
+                    <option value="64">64</option>
+                    <option value="32">32</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label for="powerpref">GPU Mode</label>
+            <div class="select-wrapper">
+                <select id="powerpref">
+                    <option value="high-performance">High Performance</option>
+                    <option value="low-power">Low Power</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button id="reset" class="primary-button">Reset</button>
+            <button id="pause" class="secondary-button">Pause</button>
+        </div>
+    </div>
+
+    <div class="keyboard-hints">
+        <kbd>Space</kbd> Pause/Resume
+        <kbd>↑/↓</kbd> Zoom
+    </div>
+
+    <script type="module" src="dist/nbody.js"></script>
+</body>
+</html>

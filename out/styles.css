@@ -1,0 +1,182 @@
+:root {
+    --primary-bg: #0a0a0a;
+    --panel-bg: rgba(28, 28, 28, 0.85);
+    --accent-color: #6366f1;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --border-radius: 12px;
+    --transition: all 0.2s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    line-height: 1.5;
+    overflow: hidden;
+}
+
+#canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 100%);
+}
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+    /* Change the gradient to be more subtle and start with full transparency */
+    background: linear-gradient(to bottom, 
+        rgba(0,0,0,0.4) 0%, 
+        rgba(0,0,0,0) 100%
+    );
+    /* Add a smaller height to ensure gradient doesn't extend too far */
+    height: 4rem;
+}
+
+#fps {
+    background: var(--panel-bg);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    font-family: 'Space Grotesk', monospace;
+    font-size: 0.9rem;
+}
+
+.controls-container {
+    position: fixed;
+    top: 5rem;
+    right: 2rem;
+    background: var(--panel-bg);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    width: 300px;
+    z-index: 2;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.control-group {
+    margin-bottom: 1.25rem;
+}
+
+.control-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper::after {
+    content: '▼';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: var(--border-radius);
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    appearance: none;
+    transition: var(--transition);
+}
+
+select:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.button-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    border: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.primary-button {
+    background: var(--accent-color);
+    color: white;
+}
+
+.secondary-button {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+button:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.1);
+}
+
+.keyboard-hints {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    background: var(--panel-bg);
+    padding: 0.75rem 1rem;
+    border-radius: var(--border-radius);
+    font-size: 0.85rem;
+    z-index: 2;
+    display: flex;
+    gap: 1rem;
+}
+
+kbd {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    font-family: monospace;
+}
